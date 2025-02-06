@@ -3,8 +3,8 @@
 document.addEventListener('click', (e) => {
   const spider = document.querySelector('.spider'); // Отримання павука;
 
-  const clickX = e.clientX; // Отримання координат кліку
-  const clickY = e.clientY;
+  const clickX = e.clientX + window.scrollX; // Отримання координат кліку
+  const clickY = e.clientY + window.ScrollY;
 
   const spiderRect = spider.getBoundingClientRect(); // Розмір павука
   const wall = document.querySelector('.wall'); // Отримуємо стіну
