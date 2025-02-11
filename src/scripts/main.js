@@ -21,14 +21,14 @@ document.addEventListener('click', (e) => {
   const spiderWidth = spider.offsetWidth;
   const spiderHeight = spider.offsetHeight;
 
-  // Обчислюємо нові координати відносно стіни
+  // Обчислюємо нові координати, центруючи павука по кліку
   const newX = Math.min(
-    Math.max(clickX - wallRect.left, 0),
+    Math.max(clickX - wallRect.left - spiderWidth / 2, 0),
     wallRect.width - spiderWidth,
   );
 
   const newY = Math.min(
-    Math.max(clickY - wallRect.top, 0),
+    Math.max(clickY - wallRect.top - spiderHeight / 2, 0),
     wallRect.height - spiderHeight,
   );
 
