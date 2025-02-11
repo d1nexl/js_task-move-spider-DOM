@@ -3,18 +3,16 @@
 document.addEventListener('click', (e) => {
   const spider = document.querySelector('.spider'); // Отримання павука
   const wall = document.querySelector('.wall'); // Отримання стіни
-
-  // Отримуємо координати кліку відносно стіни
-  const wallRect = wall.getBoundingClientRect();
-  const clickX = e.clientX - wallRect.left; // Коригуємо координати
-  const clickY = e.clientY - wallRect.top; // Коригуємо координати
+  const clickX = e.clientX; // Отримання координат кліку
+  const clickY = e.clientY;
+  const wallRect = wall.getBoundingClientRect(); // Отримання розмірів стіни
 
   // Перевірка, чи клік в межах стіни
   if (
-    clickX < 0 ||
-    clickX > wallRect.width ||
-    clickY < 0 ||
-    clickY > wallRect.height
+    clickX < wallRect.left ||
+    clickX > wallRect.right ||
+    clickY < wallRect.top ||
+    clickY > wallRect.bottom
   ) {
     return;
   }
@@ -23,14 +21,14 @@ document.addEventListener('click', (e) => {
   const spiderWidth = spider.offsetWidth;
   const spiderHeight = spider.offsetHeight;
 
-  // Обчислюємо нові координати, щоб центр павука був по кліку
+  // Обчислюємо нові координати, центруючи павука по кліку
   const newX = Math.min(
-    Math.max(clickX - spiderWidth / 2, 0),
+    Math.max(clickX - wallRect.left - spiderWidth / 2, 0),
     wallRect.width - spiderWidth,
   );
 
   const newY = Math.min(
-    Math.max(clickY - spiderHeight / 2, 0),
+    Math.max(clickY - wallRect.top - spiderHeight / 2, 0),
     wallRect.height - spiderHeight,
   );
 
