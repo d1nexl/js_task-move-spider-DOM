@@ -33,5 +33,7 @@ document.addEventListener('click', (e) => {
   );
 
   // Переміщуємо павука відносно стіни
-  spider.style.transform = `translate(${newX}px, ${newY}px)`;
+  spider.style.position = 'absoulte';
+  spider.style.left = `${newX}px`;
+  spider.style.top = `${newY}px`;
 });
