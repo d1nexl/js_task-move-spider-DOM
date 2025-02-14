@@ -23,9 +23,9 @@ document.addEventListener('click', (e) => {
 
   // Максимальні та мінімальні межі для павука
   const minCoordX = 0;
-  const maxCoordX = wallRect.width - spider.height;
+  const maxCoordX = wallRect.width - spiderWidth - 20;
   const minCoordY = 0;
-  const maxCoordY = wallRect.height - spider.height;
+  const maxCoordY = wallRect.height - spiderHeight - 20;
 
   // Обчислюємо нові координати, центруючи павука по кліку
   const newX = Math.min(
